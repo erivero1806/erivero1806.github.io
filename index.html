@@ -10,7 +10,7 @@
 <body>
 
     <div style="text-align:center;">
-        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement for testing purpose 20 </h2>
+        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement for testing purpose 22 </h2>
     </div>
 
 	<div style="height:200vh; background-color:gray;">
@@ -39,7 +39,7 @@
 	.button-slds{
             position: fixed;
             bottom: 15px;
-            right: 40px;
+            right: 25px;
             z-index: 1000;
                background-color: #A22236;
 		color:white;
@@ -49,7 +49,7 @@
 		text-decoration:none !important;
 		border-radius:21px 21px;
 		border:none;
-            padding: 14px;
+            padding: 15px;
             cursor: pointer;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 	
@@ -64,6 +64,7 @@
 
 	<script type='text/javascript'>
 	function bootstrapChat() {
+	    embedded_svc.bootstrapEmbeddedService();
 	    const button = document.querySelector('.button-slds');
             button.classList.add('loading');
             button.innerText = 'Cargando...';
@@ -71,10 +72,10 @@
             setTimeout(() => {
                 button.classList.remove('loading');
                 button.innerText = ' Ayuda! ';
-            }, 2500);
+            }, 2100);
 
 		
-		embedded_svc.bootstrapEmbeddedService();
+		
 	}
 </script>
 <button onclick="bootstrapChat()" class="button-slds">
