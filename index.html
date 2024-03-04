@@ -1,0 +1,65 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement for testing purpose</h2>
+    <style type='text/css'>
+        .embeddedServiceHelpButton .helpButton .uiButton {
+            background-color: #B14747;
+            font-family: "Arial", sans-serif;
+        }
+        .embeddedServiceHelpButton .helpButton .uiButton:focus {
+            outline: 1px solid #B14747;
+        }
+    </style>
+
+
+    
+    <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+    <script type='text/javascript'>
+        var initESW = function(gslbBaseURL) {
+            embedded_svc.settings.displayHelpButton = true; //Or false
+            embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+            embedded_svc.settings.defaultMinimizedText = 'Agentes en linea'; //(Defaults to Chat with an Expert)
+            embedded_svc.settings.disabledMinimizedText = 'Agentes offline'; //(Defaults to Agent Offline)
+            embedded_svc.settings.loadingText = 'Espere...'; //(Defaults to Loading)
+            //embedded_svc.settings.storageDomain = 'yourdomain.com';
+            embedded_svc.settings.offlineSupportMinimizedText = 'Chatea con nosotros'; //(Defaults to Contact Us)
+            embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+            embedded_svc.settings.entryFeature = 'LiveAgent';
+            embedded_svc.init(
+                'https://axioma6-dev-ed.develop.my.salesforce.com',
+                'https://axioma6-dev-ed.develop.my.site.com/ESWwebChatcustom21709402481159vforcesite',
+                gslbBaseURL,
+                '00DHo000001xThr',
+                'botQueueGroup',
+                {
+                    baseLiveAgentContentURL: 'https://c.la3-c1-ia6.salesforceliveagent.com/content',
+                    deploymentId: '572Ho000000l9se',
+                    buttonId: '573Ho000000l9qm',
+                    baseLiveAgentURL: 'https://d.la3-c1-ia6.salesforceliveagent.com/chat',
+                    eswLiveAgentDevName: 'botQueueGroup',
+                    isOfflineSupportEnabled: false
+                }
+            );
+        };
+    
+        if (!window.embedded_svc) {
+            var s = document.createElement('script');
+            s.setAttribute('src', 'https://axioma6-dev-ed.develop.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+            s.onload = function() {
+                initESW(null);
+            };
+            document.body.appendChild(s);
+        } else {
+            initESW('https://service.force.com');
+        }
+    </script>
+</body>
+</html>
