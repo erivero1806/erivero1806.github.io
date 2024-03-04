@@ -10,7 +10,7 @@
 <body>
 
     <div style="text-align:center;">
-        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement for testing purpose 17 </h2>
+        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement for testing purpose 18 </h2>
     </div>
     
 <style type='text/css'>
@@ -42,17 +42,34 @@
 		font-family: "Arial", sans-serif;
 		font-weight:bold;
 		text-decoration:none !important;
-		border-radius:15px 15px 15px 15px;
-            padding: 10px;
+		border-radius:20px 20px;
+		border:none;
+            padding: 15px;
             cursor: pointer;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	
 		
 	}
+
+	 .loading {
+            cursor: not-allowed;
+        }
 </style>
 
 
 	<script type='text/javascript'>
 	function bootstrapChat() {
+		const button = document.querySelector('.button-slds');
+            button.classList.add('loading');
+            button.innerText = 'Cargando...';
+            // Simula una carga o redirección (reemplaza con tu lógica real)
+            setTimeout(() => {
+                alert("Chatbot abierto");
+                button.classList.remove('loading');
+               // button.innerText = 'Abrir Chatbot';
+            }, 2000);
+
+		
 		embedded_svc.bootstrapEmbeddedService();
 	}
 </script>
