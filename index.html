@@ -13,29 +13,27 @@
         <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement for testing purpose 3</h2>
     </div>
     
-
-    <style type='text/css'>
-        .embeddedServiceHelpButton .helpButton .uiButton {
-            background-color: #B14747;
-            font-family: "Arial", sans-serif;
-        }
-        .embeddedServiceHelpButton .helpButton .uiButton:focus {
-            outline: 1px solid #B14747;
-        }
-    </style>
-
+<style type='text/css'>
+	.embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: #B14747;
+		font-family: "Arial", sans-serif;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #B14747;
+	}
+</style>
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
-		embedded_svc.settings.language = 'es-ES'; //For example, enter 'en' or 'en-US'
+		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 
-		embedded_svc.settings.defaultMinimizedText = 'Estamos en linea'; //(Defaults to Chat with an Expert)
-		embedded_svc.settings.disabledMinimizedText = 'Fuera de linea'; //(Defaults to Agent Offline)
+		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
 
-		embedded_svc.settings.loadingText = 'Cargando...'; //(Defaults to Loading)
-		embedded_svc.settings.storageDomain = 'erivero1806.github.io'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
 
 		// Settings for Chat
 		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
@@ -54,13 +52,13 @@
 			'https://axioma6-dev-ed.develop.my.site.com/ESWwebChatcustom21709402481159vforcesite',
 			gslbBaseURL,
 			'00DHo000001xThr',
-			'botGitTestGroup',
+			'botQueueGroup',
 			{
 				baseLiveAgentContentURL: 'https://c.la3-c1-ia6.salesforceliveagent.com/content',
 				deploymentId: '572Ho000000l9se',
-				buttonId: '573Ho000000l9qr',
+				buttonId: '573Ho000000l9qm',
 				baseLiveAgentURL: 'https://d.la3-c1-ia6.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'botGitTestGroup',
+				eswLiveAgentDevName: 'botQueueGroup',
 				isOfflineSupportEnabled: false
 			}
 		);
