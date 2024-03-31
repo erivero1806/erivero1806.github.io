@@ -40,24 +40,6 @@
 
 
 
-	
-  .embeddedServiceHelpButton {
-    display: flex;
-    align-items: center;
-  }
-
-  .embeddedServiceIcon {
-    margin-right: 5px; /* Ajusta este valor según lo necesites */
-  }
-
-  .helpButtonLabel {
-    display: flex;
-    align-items: center;
-  }
-
-  .assistiveText {
-    margin-right: 5px; /* Ajusta este valor según lo necesites */
-  }
 
 
 
@@ -216,8 +198,8 @@
 		embedded_svc.settings.language = 'es'; //For example, enter 'en' or 'en-US'
 		embedded_svc.settings.widgetWidth = "300px";
  
-		embedded_svc.settings.defaultMinimizedText = 'Ayuda'; //(Defaults to Chat with an Expert)
-		embedded_svc.settings.disabledMinimizedText = 'Ayuda Offline'; //(Defaults to Agent Offline)
+		embedded_svc.settings.defaultMinimizedText = 'Platica con un experto'; //(Defaults to Chat with an Expert)
+		embedded_svc.settings.disabledMinimizedText = 'Agentes offline'; //(Defaults to Agent Offline)
 
 		embedded_svc.settings.loadingText = 'Cargando...'; //(Defaults to Loading)
 		embedded_svc.settings.storageDomain = 'erivero1806.github.io'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
@@ -229,7 +211,7 @@
 		//};
 		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
 		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
-		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+		embedded_svc.settings.offlineSupportMinimizedText = 'Agentes offline'; //(Defaults to Contact Us)
 
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
