@@ -10,14 +10,14 @@
 <body>
  
     <div style="text-align:center;">
-        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement for testing purpose 51 </h2>
+        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement for testing purpose 52 </h2>
     </div>
 
 	<div style="height:200vh; background-color:gray;">
 		Hello, this a test content for bot
 		
 	</div>
-    
+<!--    
 <style type='text/css'>
 	.embeddedServiceHelpButton .helpButton .uiButton { 
 		background-color: #A22236;
@@ -37,21 +37,6 @@
 	}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
 
 	  .sidebarHeader h2{
    	 color:white;
@@ -78,13 +63,11 @@
 		
 	}
 
-
-
 	 .loading {
             cursor: not-allowed;
         }
 </style>
-
+-->
 
 
 
@@ -130,12 +113,28 @@
 
 	
 
+<style type='text/css'>
+	.embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: #A22236;
+		color:white;
+		font-family: "Arial", sans-serif;
+		font-weight:bold;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #9A2237
+		border-radius:none;
+	}
+  	.sidebarHeader h2{
+   	 color:white;
+  	}
+</style>
+
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
-		embedded_svc.settings.language = 'es'; //For example, enter 'en' or 'en-US'
+		embedded_svc.settings.language = 'es';                     //AQUI ES DONDE DEBEN PONER EL IDIOMA, ES (ESPAÑOL)  o  EN(INGLES)
 		embedded_svc.settings.widgetWidth = "300px";
 		embedded_svc.settings.offlineSupportMinimizedText = 'Ayuda';
  
@@ -143,7 +142,8 @@
 		embedded_svc.settings.disabledMinimizedText = 'Ayuda Offline'; //(Defaults to Agent Offline)
 
 		embedded_svc.settings.loadingText = 'Cargando...'; //(Defaults to Loading)
-		embedded_svc.settings.storageDomain = 'erivero1806.github.io'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+		embedded_svc.settings.storageDomain ='erivero1806.github.io';     //AQUI ES DONDE DEBEN PONER EL DOMINIO DE CADA SITE *********
+		embedded_svc.settings.widgetFontSize = '18px';
 
 		// Settings for Chat
 		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
