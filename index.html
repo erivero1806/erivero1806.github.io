@@ -10,7 +10,7 @@
 <body>
  
     <div style="text-align:center;">
-        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 4</h2>
+        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 5</h2>
     </div>
 
 	<div style="height:200vh; background-color:gray;">
@@ -134,14 +134,11 @@
 		text-decoration: none;
 	}
 	.dockableContainer .showDockableContainer{
-		-webkit-touch-callout: none;
-		  -webkit-user-select: none;
-		  -khtml-user-select: none;
-		  -moz-user-select: none;
-		  -ms-user-select: none;
-		  user-select: none;
-		 max-zoom: 1;
-		  min-zoom: 1;
+	  touch-action: manipulation;
+	  -webkit-user-zoom: none;
+	  user-zoom: none;
+	  -ms-touch-action: manipulation;
+	  -ms-user-zoom: none;
 
 	}
 </style>
