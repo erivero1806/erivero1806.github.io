@@ -10,7 +10,7 @@
 <body>
  
     <div style="text-align:center;">
-        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 8</h2>
+        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 9</h2>
     </div>
 
 	<div style="height:200vh; background-color:gray;">
@@ -190,13 +190,14 @@
 	};
 
 	if (!window.embedded_svc) {
-		console.log('entrando @@@@@@@@@@@@ if');
 		var s = document.createElement('script');
 		s.setAttribute('src', 'https://tane.my.salesforce.com/embeddedservice/5.0/esw.min.js');
 		s.onload = function() {
 			initESW(null);
+			console.log('entrando @@@@@@@@@@@@ if');
 		};
 		document.body.appendChild(s);
+		console.log('entrando child @@@@@@@@@@@@ if');
 	} else {
 		console.log('saliendo @@@@@@@@@@@@ else');
 		initESW('https://service.force.com');
