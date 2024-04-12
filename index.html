@@ -10,7 +10,7 @@
 <body>
  
     <div style="text-align:center;">
-        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 6</h2>
+        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 8</h2>
     </div>
 
 	<div style="height:200vh; background-color:gray;">
@@ -35,6 +35,9 @@
 		text-decoration:none !important;
 		border-radius:none;
 	}
+
+	.embeddedServiceHelpButton .helpButton .uiButton.helpButtonDisabled { display: none; }
+    .embeddedServiceHelpButton .helpButton .uiButton.helpButtonEnabled { display: none; }
 
 
 
@@ -72,7 +75,7 @@
 
 
 
-
+<!--
 	<script type='text/javascript'>
 	function bootstrapChat() {
 	    embedded_svc.bootstrapEmbeddedService();
@@ -90,8 +93,10 @@
 	}
 </script>
 
+	-->
 
-<button onclick="bootstrapChat()" class="button-slds">
+
+<button onclick="bootstrapChat()" class="button-slds chat-button">
 	<div class="container">
 		Ayuda
 	</div>
@@ -129,6 +134,8 @@
 -->
 
 
+
+	<!--
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
@@ -184,7 +191,7 @@
 	}
 </script>
 
-
+-->
 	
 
 
@@ -192,7 +199,7 @@
 
 
 	
-<!--
+
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
@@ -245,9 +252,53 @@
 	} else {
 		initESW('https://service.force.com');
 	}
+
+
+
+
+
+	const chatHandler = function() {
+      if (typeof window.embedded_svc !== 'undefined') {
+        window.embedded_svc.onHelpButtonClick();
+      }
+    };
+
+    const els = document.getElementsByClassName('chat-button');
+    Array.prototype.forEach.call(els, function(el) {
+      el.addEventListener('click', chatHandler);
+    });
+
+    const chatButtonLabel = document.querySelector('.embeddedServiceHelpButton .helpButtonLabel');
+
+    const observer = new MutationObserver(function(mutations) {
+      mutations.forEach(function(mutation) {
+        if (mutation.target.classList.contains('helpButtonLabel')) {
+          updateChatButtonState(chatButtonLabel.textContent);
+        }
+      });
+    });
+
+    observer.observe(document, { childList: true, subtree: true });
+
+    function updateChatButtonState(label) {
+      const chatButtons = document.querySelectorAll('.chat-button');
+      chatButtons.forEach(function(button) {
+        if (label === 'Online') {
+          button.classList.remove('offline');
+          button.classList.add('online');
+          button.textContent = 'Chat En Línea';
+        } else {
+          button.classList.remove('online');
+          button.classList.add('offline');
+          button.textContent = 'Chat Desconectado';
+        }
+      });
+    }
+
+	
 	
 </script>
--->
+
 	
 
 </body>
