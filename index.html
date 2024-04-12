@@ -10,7 +10,7 @@
 <body>
  
     <div style="text-align:center;">
-        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 15</h2>
+        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 16</h2>
     </div>
 
 	<div style="height:200vh; background-color:gray;">
@@ -281,7 +281,7 @@ const updateButtonStatus = () => {
   const helpButtonLabel = document.querySelector('.embeddedServiceHelpButton .helpButton .helpButtonLabel .message');
 
 	//let status = document.querySelector('.message').innerText;
-	document.querySelector('.chat-button').innerText = helpButtonLabel.innerText; 
+	document.querySelector('.chat-button').innerHTML = helpButtonLabel.innerHTML; 
 
   if (helpButtonLabel.textContent.includes('Online')) {
     button.classList.remove('offline');
