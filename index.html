@@ -10,7 +10,7 @@
 <body>
  
     <div style="text-align:center;">
-        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 14</h2>
+        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 15</h2>
     </div>
 
 	<div style="height:200vh; background-color:gray;">
@@ -273,16 +273,43 @@
   }
 };
 
- const initObserver = function() {
-let status = document.querySelector('.message').innerText;
-document.querySelector('.chat-button').innerText = status; 
-	 
 
+
+const updateButtonStatus = () => {
+  const button = document.querySelector('.chat-button');
+  const buttonText = document.querySelector('.chat-button .button-text');
+  const helpButtonLabel = document.querySelector('.embeddedServiceHelpButton .helpButton .helpButtonLabel .message');
+
+	//let status = document.querySelector('.message').innerText;
+	document.querySelector('.chat-button').innerText = helpButtonLabel.innerText; 
+
+  if (helpButtonLabel.textContent.includes('Online')) {
+    button.classList.remove('offline');
+    button.classList.add('online');
+    buttonText.textContent = 'Chat en línea';
+  } else {
+    button.classList.remove('online');
+    button.classList.add('offline');
+    buttonText.textContent = 'Chat fuera de línea';
+  }
 };
 
+let observer;
 
-initObserver();
+const initObserver = () => {
+  const helpButtonLabel = document.querySelector('.embeddedServiceHelpButton .helpButton .helpButtonLabel .message');
+  if (helpButtonLabel) {
+    observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        updateButtonStatus();
+      });
+    });
+    observer.observe(helpButtonLabel, { childList: true, subtree: true });
+  }
+};
+
 document.querySelector('.chat-button').addEventListener('click', chatHandler);
+initObserver();
 
 
 	
