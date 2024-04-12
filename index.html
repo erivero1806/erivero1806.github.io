@@ -10,7 +10,7 @@
 <body>
  
     <div style="text-align:center;">
-        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 11</h2>
+        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 12</h2>
     </div>
 
 	<div style="height:200vh; background-color:gray;">
@@ -266,44 +266,52 @@
 
 
 
-	const chatHandler = function() {
-      if (typeof window.embedded_svc !== 'undefined') {
-        window.embedded_svc.onHelpButtonClick();
-      }
-    };
 
-    const els = document.getElementsByClassName('chat-button');
-    Array.prototype.forEach.call(els, function(el) {
-      el.addEventListener('click', chatHandler);
-    });
+ const chatHandler = function() {
+  if (typeof window.embedded_svc !== 'undefined') {
+    window.embedded_svc.onHelpButtonClick();
+  }
+};
 
-    const chatButtonLabel = document.querySelector('.embeddedServiceHelpButton .helpButtonLabel');
+const updateButtonStatus = (status) => {
+  const button = document.querySelector('.chat-button');
+  if (status === 'online') {
+    button.classList.remove('offline');
+    button.classList.add('online'); 
+   buttonText.textContent = 'Chat en línea';
+    // Add any other online-specific styles or text
+  } else {
+    button.classList.remove('online');
+    button.classList.add('offline');
+	   buttonText.textContent = 'Chat offline';
+    // Add any other offline-specific styles or text
+  }
+};
 
-    const observer = new MutationObserver(function(mutations) {
-      mutations.forEach(function(mutation) {
-        if (mutation.target.classList.contains('helpButtonLabel')) {
-          updateChatButtonState(chatButtonLabel.textContent);
-        }
-      });
-    });
+let observer;
 
-    observer.observe(document, { childList: true, subtree: true });
-
-    function updateChatButtonState(label) {
-      const chatButtons = document.querySelectorAll('.chat-button');
-      chatButtons.forEach(function(button) {
-	console.log(button);
-        if (label === 'Platica con un experto') {
-          button.classList.remove('offline');
-          button.classList.add('online');
-          button.textContent = 'Chat En Línea';
+const initObserver = () => {
+  const helpButtonLabel = document.querySelector('.embeddedServiceHelpButton .helpButtonLabel');
+  if (helpButtonLabel) {
+    observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.target.textContent.includes('Online')) {
+          updateButtonStatus('online');
         } else {
-          button.classList.remove('online');
-          button.classList.add('offline');
-          button.textContent = 'Chat Desconectado';
+          updateButtonStatus('offline');
         }
       });
-    }
+    });
+    observer.observe(helpButtonLabel, { childList: true, subtree: true });
+  }
+};
+
+document.querySelector('.chat-button').addEventListener('click', chatHandler);
+initObserver();
+
+
+
+
 
 	
 	
