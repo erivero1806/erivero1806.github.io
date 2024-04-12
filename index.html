@@ -10,7 +10,7 @@
 <body>
  
     <div style="text-align:center;">
-        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 4</h2>
+        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 5</h2>
     </div>
 
 	<div style="height:200vh; background-color:gray;">
@@ -273,25 +273,35 @@
   }
 };
 
- 	
-	
-const targetNode = document.querySelector('.embeddedServiceHelpButton');
-const config = { childList: true, subtree: true };
-const callback = function(mutationsList, observer) {
-    for(const mutation of mutationsList) {
-        if (mutation.type === 'childList') {
-            const insertedDiv = document.querySelector('.embeddedServiceHelpButton');
-            if (insertedDiv) {
-		      const helpButtonLabel = document.querySelector('.message');
-		       document.querySelector('.chat-button').innerHTML = helpButtonLabel.innerHTML;
-                observer.disconnect();
-            }
-        }
-    }
-};
 
-const observer = new MutationObserver(callback);
-observer.observe(targetNode, config);
+
+	
+const observer = new MutationObserver(function(mutations) {
+  mutations.forEach(function(mutation) {
+    // Verificar si se ha añadido algún nodo al body
+    if (mutation.type === 'childList') {
+      // Buscar el div con la clase 'embeddedServiceHelpButton'
+      const embeddedServiceHelpButton = document.querySelector('.embeddedServiceHelpButton');
+      if (embeddedServiceHelpButton) {
+        console.log('Se ha creado un div con la clase embeddedServiceHelpButton');
+	      const helpButtonLabel = document.querySelector('.message');
+		       document.querySelector('.chat-button').innerHTML = helpButtonLabel.innerHTML;
+	      
+      }
+    }
+  });
+});
+
+// Configurar el Mutation Observer para observar cambios en el body
+observer.observe(document.body, {
+  childList: true
+});
+
+
+
+
+
+	
 document.querySelector('.chat-button').addEventListener('click', chatHandler);
 
 
