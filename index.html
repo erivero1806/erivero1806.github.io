@@ -10,7 +10,7 @@
 <body>
  
     <div style="text-align:center;">
-        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 2</h2>
+        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 3</h2>
     </div>
 
 	<div style="height:200vh; background-color:gray;">
@@ -224,6 +224,63 @@
 
 		embedded_svc.settings.loadingText = 'Cargando...'; //(Defaults to Loading)
 		embedded_svc.settings.storageDomain = 'erivero1806.github.io'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+
+		embedded_svc.settings.extraPrechatInfo = [
+    {
+      "entityFieldMaps": [
+        {
+          "doCreate": false,
+          "doFind": true,
+          "fieldName": "LastName",
+          "isExactMatch": true,
+          "label": "Apellidos"
+        },
+        {
+          "doCreate": false,
+          "doFind": true,
+          "fieldName": "FirstName",
+          "isExactMatch": true,
+          "label": "Nombre"
+        },
+        {
+          "doCreate": false,
+          "doFind": true,
+          "fieldName": "Email",
+          "isExactMatch": true,
+          "label": "Correo electrónico"
+        }
+      ],
+      "entityName": "Contact",
+      "saveToTranscript": "Contact",
+      "showOnCreate": true
+    },
+    {
+      "entityFieldMaps": [
+        {
+          "doCreate": false,
+          "doFind": true,
+          "fieldName": "Subject",
+          "isExactMatch": true,
+          "label": "Motivo del contacto"
+        }
+      ],
+      "entityName": "Case",
+      "saveToTranscript": "Case",
+      "showOnCreate": true
+    }
+  ];
+
+
+
+
+
+
+
+
+
+
+
+		
 
 		// Settings for Chat
 		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
