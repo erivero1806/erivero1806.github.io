@@ -10,7 +10,7 @@
 <body>
  
     <div style="text-align:center;">
-        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 2</h2>
+        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 3</h2>
     </div>
 
 	<div style="height:200vh; background-color:gray;">
@@ -36,8 +36,7 @@
 		border-radius:none;
 	}
 
-	.embeddedServiceHelpButton .helpButton .uiButton.helpButtonDisabled { display: none; }
-    .embeddedServiceHelpButton .helpButton .uiButton.helpButtonEnabled { display: none; }
+
 
 
 
@@ -75,7 +74,7 @@
 
 
 
-<!--
+
 	<script type='text/javascript'>
 	function bootstrapChat() {
 	    embedded_svc.bootstrapEmbeddedService();
@@ -93,22 +92,22 @@
 	}
 </script>
 
-	-->
+	
 
 
-	<!--
+	
 <button onclick="bootstrapChat()" class="button-slds chat-button">
 	<div class="container">
 		Ayuda
 	</div>
 	
 	
-</button>-->
+</button>
 
-	<button  class="button-slds chat-button">
+	<!--<button  class="button-slds chat-button">
 	<div class="container">
 		Ayuda
-	</div>
+	</div>-->
 	
 	
 </button>
@@ -212,7 +211,7 @@
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
-		embedded_svc.settings.displayHelpButton = true; //Or false
+		embedded_svc.settings.displayHelpButton = false; //Or false
 		embedded_svc.settings.language = 'es'; //For example, enter 'en' or 'en-US'
 		embedded_svc.settings.widgetWidth = "300px";
  
@@ -267,11 +266,11 @@
 
 
 
- const chatHandler = function() {
+/* const chatHandler = function() {
   if (typeof window.embedded_svc !== 'undefined') {
     window.embedded_svc.onHelpButtonClick();
   }
-};
+};*/
 
 
 
@@ -305,7 +304,7 @@ observer.observe(document.body, {
 
 
 	
-document.querySelector('.chat-button').addEventListener('click', chatHandler);
+//document.querySelector('.chat-button').addEventListener('click', chatHandler);
 
 
 
