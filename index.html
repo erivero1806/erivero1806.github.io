@@ -10,7 +10,7 @@
 <body>
  
     <div style="text-align:center;">
-        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 3</h2>
+        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 4</h2>
     </div>
 
 	<div style="height:200vh; background-color:gray;">
@@ -273,45 +273,27 @@
   }
 };
 
-
-
-const updateButtonStatus = () => {
-  const button = document.querySelector('.chat-button');
-  const buttonText = document.querySelector('.chat-button .button-text');
-  const helpButtonLabel = document.querySelector('.embeddedServiceHelpButton .helpButton .helpButtonLabel .message');
-
-	//let status = document.querySelector('.message').innerText;
-	document.querySelector('.chat-button').innerHTML = helpButtonLabel.innerHTML; 
-
-  if (helpButtonLabel.textContent.includes('Online')) {
-    button.classList.remove('offline');
-    button.classList.add('online');
-    buttonText.textContent = 'Chat en línea';
-  } else {
-    button.classList.remove('online');
-    button.classList.add('offline');
-    buttonText.textContent = 'Chat fuera de línea';
-  }
+ 	
+	
+const targetNode = document.querySelector('.embeddedServiceHelpButton');
+const config = { childList: true, subtree: true };
+const callback = function(mutationsList, observer) {
+    for(const mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+            const insertedDiv = document.querySelector('.embeddedServiceHelpButton');
+            if (insertedDiv) {
+		      const helpButtonLabel = document.querySelector('.message');
+		       document.querySelector('.chat-button').innerHTML = helpButtonLabel.innerHTML;
+                observer.disconnect();
+            }
+        }
+    }
 };
 
-let observer;
-
-const initObserver = () => {
-  const helpButtonLabel = document.querySelector('.message');
-	console.log(helpButtonLabel.innerHTML);
-	console.log('help button');
-  if (helpButtonLabel) {
-    observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        updateButtonStatus();
-      });
-    });
-    observer.observe(helpButtonLabel, { childList: true, subtree: true });
-  }
-};
-
+const observer = new MutationObserver(callback);
+observer.observe(targetNode, config);
 document.querySelector('.chat-button').addEventListener('click', chatHandler);
-initObserver();
+
 
 
 	
