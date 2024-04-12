@@ -10,7 +10,7 @@
 <body>
  
     <div style="text-align:center;">
-        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 12</h2>
+        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 13</h2>
     </div>
 
 	<div style="height:200vh; background-color:gray;">
@@ -273,33 +273,32 @@
   }
 };
 
-const updateButtonStatus = (status) => {
+
+	
+const updateButtonStatus = () => {
   const button = document.querySelector('.chat-button');
-  if (status === 'online') {
+  const buttonText = document.querySelector('.chat-button .button-text');
+  const helpButtonLabel = document.querySelector('.embeddedServiceHelpButton .helpButton .helpButtonLabel .message');
+
+  if (helpButtonLabel.textContent.includes('Platica con un experto')) {
     button.classList.remove('offline');
-    button.classList.add('online'); 
-   buttonText.textContent = 'Chat en línea';
-    // Add any other online-specific styles or text
+    button.classList.add('online');
+    buttonText.textContent = 'Chat en línea';
   } else {
     button.classList.remove('online');
     button.classList.add('offline');
-	   buttonText.textContent = 'Chat offline';
-    // Add any other offline-specific styles or text
+    buttonText.textContent = 'Chat fuera de línea';
   }
 };
 
 let observer;
 
 const initObserver = () => {
-  const helpButtonLabel = document.querySelector('.embeddedServiceHelpButton .helpButtonLabel');
+  const helpButtonLabel = document.querySelector('.embeddedServiceHelpButton .helpButton .helpButtonLabel .message');
   if (helpButtonLabel) {
     observer = new MutationObserver((mutations) => {
       mutations.forEach((mutation) => {
-        if (mutation.target.textContent.includes('Online')) {
-          updateButtonStatus('online');
-        } else {
-          updateButtonStatus('offline');
-        }
+        updateButtonStatus();
       });
     });
     observer.observe(helpButtonLabel, { childList: true, subtree: true });
@@ -308,7 +307,6 @@ const initObserver = () => {
 
 document.querySelector('.chat-button').addEventListener('click', chatHandler);
 initObserver();
-
 
 
 
