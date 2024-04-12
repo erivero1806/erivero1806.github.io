@@ -10,7 +10,7 @@
 <body>
  
     <div style="text-align:center;">
-        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 10</h2>
+        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 11</h2>
     </div>
 
 	<div style="height:200vh; background-color:gray;">
@@ -292,6 +292,7 @@
     function updateChatButtonState(label) {
       const chatButtons = document.querySelectorAll('.chat-button');
       chatButtons.forEach(function(button) {
+	console.log(button);
         if (label === 'Platica con un experto') {
           button.classList.remove('offline');
           button.classList.add('online');
