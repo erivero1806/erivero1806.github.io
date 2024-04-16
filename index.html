@@ -10,7 +10,7 @@
 <body>
  
     <div style="text-align:center;">
-        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 8</h2>
+        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 9</h2>
     </div>
 
 	<div style="height:200vh; background-color:gray;">
@@ -384,12 +384,12 @@ observer.observe(document.body, {
       // Buscar el div con la clase 'embeddedServiceHelpButton'
       const modalChatOpen = document.querySelector('.showDockableContainer');
       if (modalChatOpen) {
+	      setTimeout(() => {
 	      let chat =  document.querySelector('.chat-button');
 	      chat.innerHTML =  document.querySelector('.message').innerHTML;
 	      chat.classList.remove('loading');
-       	      observer2.disconnect();    
-	 //document.querySelector('.chat-button').innerHTML =  document.querySelector('.message').innerHTML;
-	
+       	      observer2.disconnect();     
+	      },1500)
       }
     }
   });
