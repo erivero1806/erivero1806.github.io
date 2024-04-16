@@ -10,7 +10,7 @@
 <body>
  
     <div style="text-align:center;">
-        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 10</h2>
+        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 11</h2>
     </div>
 
 	<div style="height:200vh; background-color:gray;">
@@ -381,8 +381,7 @@ observer.observe(document.body, {
   mutations.forEach(function(mutation) {
     // Verificar si se ha añadido algún nodo al body
     if (mutation.type === 'childList') {
-      // Buscar el div con la clase 'embeddedServiceHelpButton'
-      const modalChatOpen = document.querySelector('.showDockableContainer');
+      const modalChatOpen = document.querySelector('.formContent');
       if (modalChatOpen) {
 	console.log('Se ha creado un div con container chat opened');
 	      setTimeout(() => {
