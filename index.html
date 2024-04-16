@@ -10,7 +10,7 @@
 <body>
  
     <div style="text-align:center;">
-        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 4</h2>
+        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 5</h2>
     </div>
 
 	<div style="height:200vh; background-color:gray;">
@@ -77,13 +77,16 @@
 
 
 
-	 @media  (max-width: 500px) and (max-height: 480px) {
-		 
-	.dockableContainer{
-	height:350px;
-	}
-       
-    }
+	@media (max-width: 500px) {
+  .dockableContainer.showDockableContainer {
+    height: 350px !important;
+  }
+}
+		
+
+		
+		
+
 </style>
 
 
@@ -358,7 +361,7 @@ const observer = new MutationObserver(function(mutations) {
 		       document.querySelector('.chat-button').innerHTML = helpButtonLabel.innerHTML;
 	      setTimeout(() => {
 		  observer.disconnect();     
-	      },2000)
+	      },3000)
 	       
       }
     }
