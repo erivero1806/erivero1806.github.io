@@ -10,7 +10,7 @@
 <body>
  
     <div style="text-align:center;">
-        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 6</h2>
+        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 7</h2>
     </div>
 
 	<div style="height:200vh; background-color:gray;">
@@ -98,11 +98,12 @@
 	    const button = document.querySelector('.button-slds');
             button.classList.add('loading');
             button.innerText = 'Cargando...';
+		validateOpenChat();
             // Simula una carga o redirección (reemplaza con tu lógica real)
-            setTimeout(() => {
+           /* setTimeout(() => {
                 button.classList.remove('loading');
                 button.innerText = ' Ayuda ';
-            }, 3500);
+            }, 3500);*/
 
 		
 		
@@ -372,6 +373,33 @@ const observer = new MutationObserver(function(mutations) {
 observer.observe(document.body, {
   childList: true
 });
+
+
+
+
+	const observer2 = new MutationObserver(function(mutations) {
+  mutations.forEach(function(mutation) {
+    // Verificar si se ha añadido algún nodo al body
+    if (mutation.type === 'childList') {
+      // Buscar el div con la clase 'embeddedServiceHelpButton'
+      const modalChatOpen = document.querySelector('.modalContainer');
+      if (modalChatOpen) {
+	 document.querySelector('.chat-button').innerHTML =  document.querySelector('.message').innerHTML;
+	 button.classList.remove('loading');
+        observer2.disconnect();    
+      }
+    }
+  });
+});
+	
+
+function validateOpenChat(){
+observer2.observe(document.body, {
+  childList: true
+});
+
+	
+}
 
 
 
