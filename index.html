@@ -10,7 +10,7 @@
 <body>
  
     <div style="text-align:center;">
-        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 1</h2>
+        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 2</h2>
     </div>
 
 	<div style="height:200vh; background-color:gray;">
@@ -382,7 +382,7 @@ observer.observe(document.body, {
   mutations.forEach(function(mutation) {
     // Verificar si se ha añadido algún nodo al body
     if (mutation.type === 'childList') {
-      const modalChatOpen = document.querySelector('.formContent');
+      const modalChatOpen = document.querySelector('.showDockableContainer');
       if (modalChatOpen) {
 	console.log('Se ha creado un div con container chat opened');
 	      setTimeout(() => {
