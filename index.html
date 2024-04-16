@@ -10,7 +10,7 @@
 <body>
  
     <div style="text-align:center;">
-        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 7</h2>
+        <h2 style="color:rgba(55, 122, 245, 0.609);">This is a code complement 8</h2>
     </div>
 
 	<div style="height:200vh; background-color:gray;">
@@ -382,11 +382,14 @@ observer.observe(document.body, {
     // Verificar si se ha añadido algún nodo al body
     if (mutation.type === 'childList') {
       // Buscar el div con la clase 'embeddedServiceHelpButton'
-      const modalChatOpen = document.querySelector('.modalContainer');
+      const modalChatOpen = document.querySelector('.showDockableContainer');
       if (modalChatOpen) {
-	 document.querySelector('.chat-button').innerHTML =  document.querySelector('.message').innerHTML;
-	 button.classList.remove('loading');
-        observer2.disconnect();    
+	      let chat =  document.querySelector('.chat-button');
+	      chat.innerHTML =  document.querySelector('.message').innerHTML;
+	      chat.classList.remove('loading');
+       	      observer2.disconnect();    
+	 //document.querySelector('.chat-button').innerHTML =  document.querySelector('.message').innerHTML;
+	
       }
     }
   });
